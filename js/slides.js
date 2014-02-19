@@ -65,24 +65,31 @@
      },
      next: function () {
        var slideIndex = _getNormalizedSlideIndex.call(this, 1);
-       var $slide = this.find(".slide").eq(slideIndex);
-       _showSlide($slide);
+       var $nextSlide = this.find(".slide").eq(slideIndex);
+       var $currentSlide = this.find(".slide").eq(this.data("currentSlide"));
+
+       var $toAnimate = $currentSlide.find(".animate:not(.animation-end)");
+
+       if ($toAnimate.length) {
+         $toAnimate.first().addClass("animation-end");
+       } else {
+         _showSlide($nextSlide);  
+       }
        
        return this;
      },
      prev: function () {
        var slideIndex = _getNormalizedSlideIndex.call(this, -1);
        var $slide = this.find(".slide").eq(slideIndex);
-       _showSlide($slide);
 
+       _showSlide($slide);
+       
        return this;
      }
    }; 
 
    $.fn.slides = function (methodName) {
      var method = (methodName && methods[methodName]) || methods["init"];
-
-     //console.log(method);
      
      return method.apply(this);
    };

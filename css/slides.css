@@ -43,3 +43,57 @@ h2, .h2 {
 .important {
   color: crimson;
 }
+
+
+/* Animations */
+.animate {
+  transition: all 1s;
+}
+
+.a-fade-in {
+  opacity: 0;
+}
+
+.a-slide-down {
+  -webkit-transform: scaleY(0);
+  -webkit-transform-origin: top;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.a-rotate-360 {
+}
+
+.a-zoom-out {
+  -webkit-transform: scale(3);
+  transform: scale(3);
+}
+
+.a-zoom-in {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.a-fade-in.animation-end {
+  opacity: 1;
+}
+
+.a-slide-down.animation-end {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+.a-rotate-360.animation-end {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.a-zoom-out.animation-end {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.a-zoom-in.animation-end {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
